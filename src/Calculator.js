@@ -15,7 +15,10 @@ const Calculator = () => {
 
   const handleCalculate = () => {
     try {
-        if(input==="="){
+        if (!input || /[\+\-\*\/]$/.test(input)) {
+            setResult("Error"); // ✅ Show "Error" for empty or incomplete expressions
+          } 
+        else if(input==="="){
             setResult("Error");
         }
         else if(input === "0/0") {
